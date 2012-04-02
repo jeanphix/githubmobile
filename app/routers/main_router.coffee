@@ -3,6 +3,7 @@
 {IssuesView} = require 'views/issues_view'
 {IssueView} = require 'views/issue_view'
 {UserView} = require 'views/user_view'
+{ReposView} = require 'views/repos_view'
 {ForkMeView} = require 'views/fork_me_view'
 
 class exports.MainRouter extends Backbone.Router
@@ -12,6 +13,7 @@ class exports.MainRouter extends Backbone.Router
     'repos/:login/:name/issues': 'issues'
     'repos/:login/:name/issues/:number': 'issue'
     'users/:login': 'user'
+    'users/:login/repos': 'user_repos'
     '*endpoint': 'fork_me'
 
   # Displays the user received feeds if signed in, else public feeds.
@@ -33,6 +35,10 @@ class exports.MainRouter extends Backbone.Router
   # Displays a public user profile.
   user: (login) ->
     app.createView(UserView).refresh("users/#{login}")
+
+  # Displays user repositories.
+  user_repos: (login) ->
+    app.createView(ReposView).refresh("users/#{login}/repos")
 
   # Displays a fork me view for not implemented endpoints.
   fork_me: (endpoint) ->

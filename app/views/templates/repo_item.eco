@@ -1,0 +1,4 @@
+<h2><%= @model.owner.login %>/<%= @model.name %></h2>
+<% if @model.description: %>
+    <p><%= @model.description %></p>
+<% end %>
