@@ -49,7 +49,7 @@ class exports.Application extends BrunchApplication
   endpoint: (url) ->
     url.replace @_githubApiBaseUrl, ''
 
-  # Initialize and adds a `viewClass` view to the `_viewsStack`.
+  # Initializes and adds a `viewClass` view to the `_viewsStack`.
   createView: (viewClass) ->
     if @_currentView
       @_currentView.showLoader()
