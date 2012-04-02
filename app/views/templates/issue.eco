@@ -1,0 +1,23 @@
+<ul>
+    <li>
+        <h2>title</h2>
+        <p><%= @model.title %></p>
+    </li>
+    <li>
+        <h2>state</h2>
+        <p><%= @model.state %></p>
+    </li>
+    <li>
+        <h2>body</h2>
+        <p><%- @model.body %></p>
+    </li>
+    <li href="<%= @model.user.url %>">
+        <img src="http://www.gravatar.com/avatar/<%= @model.user.gravatar_id %>?s=50&d=mm" alt="<% @model.user.login %>" />
+        <h2>created_by</h2>
+        <p><%= @model.user.login %></p>
+    </li>
+    <li href="<%= @model.url %>/comments">
+        <h2>comments</h2>
+        <p><%- @model.comments %></p>
+    </li>
+</ul>

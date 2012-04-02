@@ -1,0 +1,29 @@
+<ul>
+    <li>
+        <img src="http://www.gravatar.com/avatar/<%= @model.gravatar_id %>?s=50&d=mm" alt="<% @model.login %>" />
+        <h2><%= @model.login %></h2>
+        <p><%= @model.name %></p>
+    </li>
+    <% if @model.bio: %>
+        <li>
+            <h2>bio</h2>
+            <p><%= @model.bio %></p>
+        </li>
+    <% end %>
+    <li>
+        <h2>location</h2>
+        <p><%= @model.location %></p>
+    </li>
+    <li href="<%= @model.url %>/repos">
+        <h2>repositories</h2>
+        <p><%= @model.public_repos %></p>
+    </li>
+    <li>
+        <h2>followers</h2>
+        <p><%= @model.followers %></p>
+    </li>
+    <li>
+        <h2>following</h2>
+        <p><%= @model.following %></p>
+    </li>
+</ul>

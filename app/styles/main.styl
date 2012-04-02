@@ -1,0 +1,133 @@
+@import 'nib'
+
+
+containerPadding = 1em
+
+
+body
+    font-size 15px
+    line-height 20px
+    font-family "Helvetica Neue", Helvetica, Arial, sans-serif
+    color #333
+    text-shadow #eee 0 -1px 0
+    background #fff
+    height 100%
+    overflow hidden
+
+ul
+    list-style none
+    padding 0
+    > li
+        padding 0.5em
+        border-top 1px #ccc solid
+        clear both
+        min-height 60px
+        > h2
+            margin 0 0 0.5em 0
+            font-weight normal
+        > img
+            float: left
+            margin: 0 0.5em 0.5em 0
+            height 60px
+        > p
+            margin 0
+        &[href]
+            cursor pointer
+            background url(../images/next.png) right center no-repeat
+
+form
+    margin-bottom 2em
+    input[type=search]
+        box-sizing(border-box)
+        width 100%
+        padding 0.5em
+        border 1px #ccc solid
+        background transparent
+        color inherit
+        font-weight inherit
+
+html
+body
+body > section
+body > section > div
+body > section > div > section
+body > section > div > section > section
+    box-sizing(border-box)
+
+html
+body
+body > section
+body > section > div
+body > section > div > section
+    height 100%
+
+header
+body > section > div > section > section
+footer
+    padding 0 containerPadding
+
+header
+footer
+    position absolute
+    box-sizing(border-box)
+    width 100%
+    line-height 3em
+
+header
+    background linear-gradient(top, #fff, #eee)
+    h1
+        margin 0 5em 0 5em
+        text-align center
+        overflow hidden
+        white-space nowrap
+        text-overflow ellipsis
+        font-size 110%
+    > a
+    > img
+        position absolute
+        display inline-block
+        line-height 2em
+        &:first-child
+            left containerPadding
+        &:last-child
+            right containerPadding
+    > a
+        top 0.5em
+        padding 0 1em
+        border 1px #ddd solid
+        text-decoration none
+        background linear-gradient(top, #fff, #e6e6e6)
+        &
+        &:hover
+        &:visited
+            color #333
+    > img
+        top 1em
+
+body > section > div > section
+    position relative
+    float left
+    width 100%
+    > section
+        position absolute
+        top 4em
+        bottom 4em
+        width 100%
+        a,
+        a:visited
+            color blue
+
+footer
+    bottom 0
+    background #000
+    a
+    a:visited
+    a:hover
+        color #eee
+
+    a
+        display inline-block
+        padding 0 2em
+        text-decoration none
+        text-shadow none
+

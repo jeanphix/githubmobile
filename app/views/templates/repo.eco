@@ -1,0 +1,26 @@
+<ul>
+    <li href="<%= @model.owner.url %>">
+        <img src="http://www.gravatar.com/avatar/<%= @model.owner.gravatar_id %>?s=50&d=mm" alt="<% @model.owner.login %>" />
+        <h2>owner</h2>
+        <p><%= @model.owner.login %></p>
+    </li>
+    <li>
+        <h2>language</h2>
+        <p><%= @model.language %></p>
+    <li>
+        <h2>description</h2>
+        <p><%= @model.description %></p>
+    </li>
+    <li href="<%= @model.url %>/issues">
+        <h2>Issues</h2>
+        <p><%= @model.open_issues || "0" %></p>
+    </li>
+    <li>
+        <h2>watchers</h2>
+        <p><%= @model.watchers || "0" %></p>
+    </li>
+    <li>
+        <h2>forks</h2>
+        <p><%= @model.forks || "0" %>
+    </li>
+</ul>

@@ -1,0 +1,2 @@
+<p>#<%= @model.number %> - updated <%= prettyDate(@model.updated_at) %></p>
+<p><%= @model.title %></p>

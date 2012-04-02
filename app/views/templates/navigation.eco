@@ -1,0 +1,6 @@
+<% if @user.login: %>
+    <a href="<%= @user.url %>" class="profile"><%= @user.login %></a>
+    <a href="signout" class="signout">signout</a>
+<% else: %>
+    <a href="signin" class="signin">signin</a>
+<% end %>

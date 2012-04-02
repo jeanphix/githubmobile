@@ -1,0 +1,41 @@
+<img src="http://www.gravatar.com/avatar/<%= @model.actor.gravatar_id %>?s=50&d=mm" alt="<% @model.actor.login %>" />
+<span class="date"><%= prettyDate(@model.created_at) %></span> :
+<span class="actor">
+    <a href="<%= @model.actor.url %>"><%= @model.actor.login %></a>
+</span>
+<span class="action">
+    <% if @model.type == 'IssueCommentEvent': %>
+        commented on
+        <a href="<%= @model.payload.issue.url %>">issue <%= @model.payload.issue.number %></a>
+        on
+        <a href="<%= @model.repo.url %>"><%= @model.repo.name %></a>
+    <% end %>
+    <% if @model.type == 'IssuesEvent': %>
+        <%= @model.payload.action %>
+        <a href="<%= @model.payload.issue.url %>">issue <%= @model.payload.issue.number %></a>
+        on
+        <a href="<%= @model.repo.url %>"><%= @model.repo.name %></a>
+    <% end %>
+    <% if @model.type == 'PushEvent': %>
+        pushed to
+        <%= @model.payload.ref %>
+        on
+        <a href="<%= @model.repo.url %>"><%= @model.repo.name %></a>
+    <% end %>
+    <% if @model.type == 'PullRequestEvent': %>
+        <%= @model.payload.action %>
+        pull request <%= @model.payload.pull_request.number %>
+        on
+        <%= @model.repo.name %>
+    <% end %>
+    <% if @model.type == 'PullRequestReviewCommentEvent': %>
+        commented on
+        a commit
+        on
+        <%= @model.repo.name %>
+    <% end %>
+    <% if @model.type == 'WatchEvent': %>
+        <%= @model.payload.action %> watching
+        <%= @model.repo.name %>
+    <% end %>
+</span>
