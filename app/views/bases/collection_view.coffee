@@ -10,7 +10,7 @@ class exports.CollectionView extends BaseView
   objectClass: Backbone.Collection
   listEl: 'ul'
 
-  # Initialize listeners.
+  # Initializes listeners.
   initialize: ->
     super
     @on 'refresh:success', (model, response) ->
