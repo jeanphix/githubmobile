@@ -11,7 +11,7 @@
         <h2>description</h2>
         <p><%= @model.description %></p>
     </li>
-    <li href="<%= @model.url %>/issues">
+    <li<% if @model.open_issues: %> href="<%= @model.url %>/issues"<% end %>>
         <h2>Issues</h2>
         <p><%= @model.open_issues || "0" %></p>
     </li>
