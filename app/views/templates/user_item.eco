@@ -1,0 +1,5 @@
+<img src="http://www.gravatar.com/avatar/<%= @model.gravatar_id %>?s=50&d=mm" alt="<% @model.login %>" />
+<h2><%= @model.login %></h2>
+<% if @model.bio: %>
+    <p><%= @model.bio %></p>
+<% end %>

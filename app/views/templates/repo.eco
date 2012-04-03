@@ -15,7 +15,7 @@
         <h2>Issues</h2>
         <p><%= @model.open_issues || "0" %></p>
     </li>
-    <li>
+    <li<% if @model.watchers: %> href="<%= @model.url %>/watchers"<% end %>>
         <h2>watchers</h2>
         <p><%= @model.watchers || "0" %></p>
     </li>

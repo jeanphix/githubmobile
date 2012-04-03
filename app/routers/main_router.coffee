@@ -4,6 +4,7 @@
 {IssueView} = require 'views/issue_view'
 {UserView} = require 'views/user_view'
 {ReposView} = require 'views/repos_view'
+{UsersView} = require 'views/users_view'
 {ForkMeView} = require 'views/fork_me_view'
 
 class exports.MainRouter extends Backbone.Router
@@ -13,6 +14,7 @@ class exports.MainRouter extends Backbone.Router
     'repos/:login/:name/issues': 'issues'
     'repos/:login/:name/issues/:number': 'issue'
     'repos/:login/:name/forks': 'forks'
+    'repos/:login/:name/watchers': 'watchers'
     'users/:login': 'user'
     'users/:login/repos': 'user_repos'
     '*endpoint': 'fork_me'
@@ -36,6 +38,10 @@ class exports.MainRouter extends Backbone.Router
   # Displays repository forks.
   forks: (login, name) ->
     app.createView(ReposView, "#{name}'s forks").refresh("repos/#{login}/#{name}/forks")
+
+  # Displays repository watchers.
+  watchers: (login, name) ->
+    app.createView(UsersView, "#{name}'s watchers").refresh("repos/#{login}/#{name}/watchers")
 
   # Displays a public user profile.
   user: (login) ->
