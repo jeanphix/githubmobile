@@ -30,6 +30,12 @@
     <% end %>
     <% if @model.type == 'PullRequestReviewCommentEvent': %>
         commented on
+        a pull request
+        on
+        <a href="<%= @model.repo.url %>"><%= @model.repo.name %></a>
+    <% end %>
+    <% if @model.type == 'CommitCommentEvent': %>
+        commented on
         a commit
         on
         <a href="<%= @model.repo.url %>"><%= @model.repo.name %></a>
@@ -37,5 +43,31 @@
     <% if @model.type == 'WatchEvent': %>
         <%= @model.payload.action %> watching
         <a href="<%= @model.repo.url %>"><%= @model.repo.name %></a>
+    <% end %>
+    <% if @model.type == 'CreateEvent': %>
+        created repository
+        <a href="<%= @model.repo.url %>"><%= @model.repo.name %></a>
+    <% end %>
+    <% if @model.type == 'ForkEvent': %>
+        forked repository
+        <a href="<%= @model.repo.url %>"><%= @model.repo.name %></a>
+        at
+        <a href="<%= @model.payload.forkee.url %>"><%= @model.payload.forkee.owner.login %>/<%= @model.payload.forkee.name %></a>
+    <% end %>
+    <% if @model.type == 'GistEvent': %>
+        <%= @model.payload.action %>
+        gist <a href="<%= @model.payload.gist.url %>"><%= @model.payload.gist.id %></a>
+        <%= @model.payload.gist.description %>
+    <% end %>
+    <% if @model.type == 'GollumnEvent': %>
+        <%= @model.payload.pages[0].action %>
+        <a href="<%= @model.repo.url %>"><%= @model.repo.name %></a>'s
+        wiki page "<%= @model.payload.pages[0].page_name %>"
+    <% end %>
+    <% if @model.type == 'FollowEvent': %>
+        started following
+        <% if @model.payload.target.type=="User": %>
+            <a href="<%= @model.payload.target.url %>"><%= @model.payload.target.login %></a>
+        <% end %>
     <% end %>
 </span>
