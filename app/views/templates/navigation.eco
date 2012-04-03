@@ -1,3 +1,4 @@
+<a href="#" class="home">home</a>
 <% if @user.login: %>
     <a href="<%= @user.url %>" class="profile"><%= @user.login %></a>
     <a href="signout" class="signout">signout</a>
