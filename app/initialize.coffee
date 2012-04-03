@@ -50,10 +50,10 @@ class exports.Application extends BrunchApplication
     url.replace @_githubApiBaseUrl, ''
 
   # Initializes and adds a `viewClass` view to the `_viewsStack`.
-  createView: (viewClass) ->
+  createView: (viewClass, title) ->
     if @_currentView
       @_currentView.showLoader()
-    @_currentView = new viewClass
+    @_currentView = new viewClass title
     @_currentView.on 'refresh:success', =>
         if @_viewsStack.length > 1
           @_viewsStack[@_viewsStack.length - 2].hideLoader()

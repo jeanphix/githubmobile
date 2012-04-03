@@ -14,10 +14,11 @@ class exports.BaseView extends Backbone.View
   endpoint: null
 
   # Initializes the object, then appends @$el to the application views holder.
-  initialize: ->
+  initialize: (title) ->
     @baseTemplate = require @baseTemplate
     @template = require @template
     @object = new @objectClass
+    @title = title if title
     $('body > section > div').append(@$el)
 
   # Renders the template with appropriate context.
