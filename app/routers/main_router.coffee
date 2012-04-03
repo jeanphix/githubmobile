@@ -12,6 +12,7 @@ class exports.MainRouter extends Backbone.Router
     'repos/:login/:name': 'repo'
     'repos/:login/:name/issues': 'issues'
     'repos/:login/:name/issues/:number': 'issue'
+    'repos/:login/:name/forks': 'forks'
     'users/:login': 'user'
     'users/:login/repos': 'user_repos'
     '*endpoint': 'fork_me'
@@ -31,6 +32,10 @@ class exports.MainRouter extends Backbone.Router
   # Displays a single repository issue.
   issue: (login, name, number) ->
     app.createView(IssueView, "issue ##{number}").refresh("repos/#{login}/#{name}/issues/#{number}")
+
+  # Displays repository forks.
+  forks: (login, name) ->
+    app.createView(ReposView, "#{name}'s forks").refresh("repos/#{login}/#{name}/forks")
 
   # Displays a public user profile.
   user: (login) ->

@@ -19,7 +19,7 @@
         <h2>watchers</h2>
         <p><%= @model.watchers || "0" %></p>
     </li>
-    <li>
+    <li<% if @model.forks: %> href="<%= @model.url %>/forks"<% end %>>
         <h2>forks</h2>
         <p><%= @model.forks || "0" %>
     </li>
