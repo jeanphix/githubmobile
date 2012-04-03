@@ -26,16 +26,16 @@
         <%= @model.payload.action %>
         pull request <%= @model.payload.pull_request.number %>
         on
-        <%= @model.repo.name %>
+        <a href="<%= @model.repo.url %>"><%= @model.repo.name %></a>
     <% end %>
     <% if @model.type == 'PullRequestReviewCommentEvent': %>
         commented on
         a commit
         on
-        <%= @model.repo.name %>
+        <a href="<%= @model.repo.url %>"><%= @model.repo.name %></a>
     <% end %>
     <% if @model.type == 'WatchEvent': %>
         <%= @model.payload.action %> watching
-        <%= @model.repo.name %>
+        <a href="<%= @model.repo.url %>"><%= @model.repo.name %></a>
     <% end %>
 </span>
